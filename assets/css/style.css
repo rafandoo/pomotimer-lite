@@ -117,16 +117,16 @@
   outline: none;
 }
 
-#actionBtn:focus {
+.actionBtn:focus {
   border: none;
   outline: none;
 }
 
-#actionBtn:hover {
+.actionBtn:hover {
   border-color: var(--bs-body-color);
 }
 
-#actionBtn {
+.actionBtn {
   background: var(--bs-body-color);
   margin-left: 10px;
   font-size: 30px;
