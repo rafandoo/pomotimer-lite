@@ -1,7 +1,7 @@
-var playBtn = document.querySelector("#playBtn"),
+const playBtn = document.querySelector("#playBtn"),
     pauseBtn = document.querySelector("#pauseBtn"),
     actIcon = document.querySelector("#actIcon"),
-    resetBtn = document.querySelector("#resetBtn");
+    refreshBtn = document.querySelector("#refreshBtn");
 
 localStorage.setItem("btn", "focus");
 
@@ -43,6 +43,19 @@ pauseBtn.addEventListener("click", () => {
         actIcon.classList.remove("fa-pause");
         actIcon.classList.add("fa-play");
     }
+});
+
+refreshBtn.addEventListener("click", () => {
+    clearTimeout(initial);
+    setProgress(0);
+    playBtn.removeAttribute("hidden");
+    pauseBtn.setAttribute("hidden", true);
+    if (pauseBtn.classList.contains("fa-play")) {
+        pauseBtn.classList.remove("fa-play");
+        pauseBtn.classList.add("fa-pause");
+    }
+    minutes.textContent = "00";
+    seconds.textContent = "00";
 });
 
 function decremenTime() {
