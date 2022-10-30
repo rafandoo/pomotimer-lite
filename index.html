@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Pomotimer</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/switch.css">
+    <link rel="stylesheet" href="assets/css/timer.css">
+</head>
+
+<body class="bg-dark">
+    <nav class="navbar navbar-dark navbar-expand-md bg-dark py-3">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span id="title">PomoTimer&nbsp;🍅</span></a>
+            <div><a id="config" data-bs-target="#modal-1" data-bs-toggle="modal"><i class="fas fa-cog text-white"></i></a>
+                <div class="modal fade" role="dialog" tabindex="-1" id="modal-1">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content bg-dark text-white">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Settings</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="input-group justify-content-center p-2"><span class="input-group-text" id="info">Focus Time</span><span class="input-group-text" id="infoConfig"><span id="focusMinutes" style="font-size: 20px;margin-left: 8px;margin-right: 8px;">25</span><button id="plusBtnFocus" class="plusBtn text-white" type="button"><i class="fas fa-plus"></i></button>
+<button id="minusBtnFocus" class="minusBtn text-white" type="button"><i class="fas fa-minus"></i></button></span></div>
+                                <div class="input-group justify-content-center p-2"><span class="input-group-text" id="info">Break Time</span><span class="input-group-text" id="infoConfig"><span id="breakMinutes" style="font-size: 20px;margin-left: 8px;margin-right: 8px;">5</span><button id="plusBtnBreak" class="plusBtn text-white" type="button"><i class="fas fa-plus"></i></button>
+<button id="minusBtnBreak" class="minusBtn text-white" type="button"><i class="fas fa-minus"></i></button></span></div>
+                            </div>
+                            <div class="modal-footer"><button type="button" class="save-btn" id="saveBtn" data-bs-dismiss="modal" aria-label="Close">
+    Save
+</button>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid p-4">
+        <div class="row mt-4">
+            <div class="col-lg-6 offset-lg-3 d-flex justify-content-center"><div class="switch-button">
+    <span class="active" style="border-radius: 20px 0px 0px 20px;"></span>
+    <button class="switch-button-case left active-case">Work</button>
+    <button class="switch-button-case right">Break</button>
+</div></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="text-white mt-7 mb-7"><figure class="timer">
+    <div class="minutes">0</div>
+    <div>:</div>
+    <div class="seconds">00</div>
+    <!-- <audio src="http://soundbible.com/mp3/service-bell_daniel_simion.mp3"></audio> -->
+    <svg class="progress-ring" height="220" width="220">
+        <circle class="progress-ring circle" stroke-width="4" fill="transparent" r="91" cx="110" cy="110"/>
+    </svg>
+</figure></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center"><button id="refreshBtn" class="text-white" type="button"><i class="fa fa-refresh"></i></button><button id="actionBtn" class="text-white" type="button"><i id="actionIcon" class="fas fa-play"></i></button></div>
+        </div>
+    </div>
+    <footer class="text-center bg-dark" style="margin-top: 40px;">
+        <div class="container text-white py-4 py-lg-4">
+            <p class="text-muted mb-0">Copyright © 2022 Rafael Camargo</p>
+            <ul class="list-inline mt-2">
+                <li class="list-inline-item me-4"><a href="https://github.com/rafandoo" target="_blank"><i class="fab fa-github text-light"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.instagram.com/rafandoo/" target="_blank"><i class="fab fa-instagram text-light"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/switch.js"></script>
+    <script src="assets/js/timer.js"></script>
+</body>
+
+</html>
