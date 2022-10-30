@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Pomotimer</title>
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/img/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="assets/img/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/android-icon-192x192.png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap">
@@ -73,8 +78,8 @@
             <div class="col-lg-6 offset-lg-3 d-flex justify-content-center">
                 <div class="switch-button">
                     <span class="active" style="border-radius: 20px 0px 0px 20px;"></span>
-                    <button class="switch-button-case left active-case">Work</button>
-                    <button class="switch-button-case right">Break</button>
+                    <button disabled class="switch-button-case left active-case">Work</button>
+                    <button disabled class="switch-button-case right">Break</button>
                 </div>
             </div>
         </div>
@@ -85,7 +90,7 @@
                         <div class="minutes">0</div>
                         <div>:</div>
                         <div class="seconds">00</div>
-                        <!-- <audio src="http://soundbible.com/mp3/service-bell_daniel_simion.mp3"></audio> -->
+                        <audio src="assets/sounds/mixkit-arcade-score-interface.mp3" id="alarm"></audio>
                         <svg class="progress-ring" height="220" width="220">
                             <circle class="progress-ring circle" stroke-width="4" fill="transparent" r="91" cx="110" cy="110" />
                         </svg>

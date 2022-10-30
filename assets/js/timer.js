@@ -1,7 +1,8 @@
 const playBtn = document.querySelector("#playBtn"),
     pauseBtn = document.querySelector("#pauseBtn"),
     actIcon = document.querySelector("#actIcon"),
-    refreshBtn = document.querySelector("#refreshBtn");
+    refreshBtn = document.querySelector("#refreshBtn"),
+    alarm = document.querySelector("#alarm");
 
 localStorage.setItem("btn", "focus");
 
@@ -15,9 +16,9 @@ playBtn.addEventListener("click", () => {
     let btn = localStorage.getItem("btn");
 
     if (btn === "focus") {
-        mins = +localStorage.getItem("focusMinutes") || 1;
+        mins = +localStorage.getItem("focusMinutes") || 25;
     } else {
-        mins = +localStorage.getItem("breakMinutes") || 1;
+        mins = +localStorage.getItem("breakMinutes") || 5;
     }
 
     secs = mins * 60;
@@ -76,7 +77,7 @@ function decremenTime() {
     } else {
         mins = 0;
         secs = 0;
-        bell.play();
+        alarm.play();
         let btn = localStorage.getItem("btn");
 
         if (btn === "focus") {
@@ -88,6 +89,5 @@ function decremenTime() {
             playBtn.textContent = "start focus";
             localStorage.setItem("btn", "focus");
         }
-        changeBtn();
     }
 }
