@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Pomotimer</title>
+    <title>Pomotimer (Backup 1667151731404)</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap">
@@ -26,16 +26,18 @@
                             <div class="modal-header">
                                 <h4 class="modal-title">Settings</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
-                                <div class="input-group justify-content-center p-2"><span class="input-group-text" id="info">Focus Time</span><span class="input-group-text" id="infoConfig"><span id="focusMinutes" style="font-size: 20px;margin-left: 8px;margin-right: 8px;">25</span><button id="plusBtnFocus" class="plusBtn text-white" type="button"><i class="fas fa-plus"></i></button>
+                            <form target="_self">
+                                <div class="modal-body">
+                                    <div class="input-group justify-content-center p-2"><span class="input-group-text" id="info">Focus Time</span><span class="input-group-text" id="infoConfig"><span id="focusMinutes" style="font-size: 20px;margin-left: 8px;margin-right: 8px;">25</span><button id="plusBtnFocus" class="plusBtn text-white" type="button"><i class="fas fa-plus"></i></button>
 <button id="minusBtnFocus" class="minusBtn text-white" type="button"><i class="fas fa-minus"></i></button></span></div>
-                                <div class="input-group justify-content-center p-2"><span class="input-group-text" id="info">Break Time</span><span class="input-group-text" id="infoConfig"><span id="breakMinutes" style="font-size: 20px;margin-left: 8px;margin-right: 8px;">5</span><button id="plusBtnBreak" class="plusBtn text-white" type="button"><i class="fas fa-plus"></i></button>
+                                    <div class="input-group justify-content-center p-2"><span class="input-group-text" id="info">Break Time</span><span class="input-group-text" id="infoConfig"><span id="breakMinutes" style="font-size: 20px;margin-left: 8px;margin-right: 8px;">5</span><button id="plusBtnBreak" class="plusBtn text-white" type="button"><i class="fas fa-plus"></i></button>
 <button id="minusBtnBreak" class="minusBtn text-white" type="button"><i class="fas fa-minus"></i></button></span></div>
-                            </div>
-                            <div class="modal-footer"><button type="button" class="save-btn" id="saveBtn" data-bs-dismiss="modal" aria-label="Close">
+                                </div>
+                                <div class="modal-footer"><button type="submit" class="save-btn" id="saveBtn" data-bs-dismiss="modal" aria-label="Close">
     Save
 </button>
 </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -79,6 +81,7 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/config.js"></script>
+    <script src="assets/js/progress.js"></script>
     <script src="assets/js/switch.js"></script>
     <script src="assets/js/timer.js"></script>
 </body>
