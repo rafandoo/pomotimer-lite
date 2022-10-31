@@ -30,15 +30,3 @@ function switchRight() {
 	activeSwitch.style.left = '50%';
 	activeSwitch.style.borderRadius = '0px 20px 20px 0px';
 }
-
-/* Adding an event listener to the switchBtnLeft element. When the element is clicked, the switchLeft
-function is called. */
-switchBtnLeft.addEventListener('click', function () {
-	switchLeft();
-}, false);
-
-/* Adding an event listener to the switchBtnRight element. When the element is clicked, the switchRight
-function is called. */
-switchBtnRight.addEventListener('click', function () {
-	switchRight();
-}, false);
