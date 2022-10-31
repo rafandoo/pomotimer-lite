@@ -2,6 +2,7 @@ const playBtn = document.querySelector("#playBtn"),
     pauseBtn = document.querySelector("#pauseBtn"),
     actIcon = document.querySelector("#actIcon"),
     refreshBtn = document.querySelector("#refreshBtn"),
+    alarmCheck = document.querySelector("#alarmCheck"),
     alarm = document.querySelector("#alarm");
 
 localStorage.setItem("status", "focus");
@@ -63,6 +64,12 @@ refreshBtn.addEventListener("click", () => {
     seconds.textContent = "00";
 });
 
+function playAlarm() {
+    if (alarmCheck.checked) {
+        alarm.play();
+    }
+}
+
 function decremenTime() {
     minutes.textContent = Math.floor(secs / 60);
     seconds.textContent = secs % 60 > 9 ? secs % 60 : `0${secs % 60}`;
@@ -81,7 +88,7 @@ function decremenTime() {
     } else {
         mins = 0;
         secs = 0;
-        alarm.play();
+        playAlarm();
         let status = localStorage.getItem("status");
 
         if (status === "focus") {
