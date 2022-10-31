@@ -4,7 +4,7 @@ const playBtn = document.querySelector("#playBtn"),
     refreshBtn = document.querySelector("#refreshBtn"),
     alarm = document.querySelector("#alarm");
 
-localStorage.setItem("btn", "focus");
+localStorage.setItem("status", "focus");
 
 const minutes = document.querySelector(".minutes"),
     seconds = document.querySelector(".seconds"),
@@ -12,10 +12,10 @@ const minutes = document.querySelector(".minutes"),
 
 let initial, totalsecs, perc, paused, mins, secs;
 
-playBtn.addEventListener("click", () => {
-    let btn = localStorage.getItem("btn");
+function playTimer() {
+    let status = localStorage.getItem("status");
 
-    if (btn === "focus") {
+    if (status === "focus") {
         mins = +localStorage.getItem("focusMinutes") || 25;
     } else {
         mins = +localStorage.getItem("breakMinutes") || 5;
@@ -27,6 +27,10 @@ playBtn.addEventListener("click", () => {
     paused = false;
     playBtn.setAttribute("hidden", true);
     pauseBtn.removeAttribute("hidden");
+}
+
+playBtn.addEventListener("click", () => {
+    playTimer();
 });
 
 pauseBtn.addEventListener("click", () => {
@@ -78,16 +82,15 @@ function decremenTime() {
         mins = 0;
         secs = 0;
         alarm.play();
-        let btn = localStorage.getItem("btn");
+        let status = localStorage.getItem("status");
 
-        if (btn === "focus") {
-            playBtn.textContent = "start break";
-            playBtn.classList.add("break");
-            localStorage.setItem("btn", "break");
+        if (status === "focus") {
+            switchRight();
+            localStorage.setItem("status", "break");
+            playTimer();
         } else {
-            playBtn.classList.remove("break");
-            playBtn.textContent = "start focus";
-            localStorage.setItem("btn", "focus");
+            switchLeft();
+            localStorage.setItem("status", "focus");
         }
     }
 }
