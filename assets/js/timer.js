@@ -3,6 +3,7 @@ const playBtn = document.querySelector("#playBtn"),
     actIcon = document.querySelector("#actIcon"),
     refreshBtn = document.querySelector("#refreshBtn"),
     alarm = document.querySelector("#alarm"),
+    cycles = document.querySelector("#cycles"),
     minutes = document.querySelector(".minutes"),
     seconds = document.querySelector(".seconds"),
     timer = document.querySelector(".timer");
@@ -30,6 +31,7 @@ pauseBtn.addEventListener("click", () => {
 
 refreshBtn.addEventListener("click", () => {
     clearTimeout(initial);
+    cyclesCount = 0;
     setProgress(0);
     playBtn.removeAttribute("hidden");
     pauseBtn.setAttribute("hidden", true);
@@ -41,7 +43,7 @@ refreshBtn.addEventListener("click", () => {
     seconds.textContent = "00";
 });
 
-let initial, totalsecs, perc, paused, mins, secs;
+let initial, totalsecs, perc, paused, mins, secs, cyclesCount = 0;
 
 function playTimer() {
     let status = localStorage.getItem("status");
@@ -87,13 +89,41 @@ function decremenTime() {
         playAlarm();
         let status = localStorage.getItem("status");
 
-        if (status === "focus") {
-            switchRight();
-            localStorage.setItem("status", "break");
-            playTimer();
+        if (!countCycles()) {
+            if (status === "focus") {
+                switchRight();
+                localStorage.setItem("status", "break");
+                playTimer();
+            } else {
+                switchLeft();
+                localStorage.setItem("status", "focus");
+                playTimer();
+            }
         } else {
-            switchLeft();
-            localStorage.setItem("status", "focus");
+            clearTimeout(initial);
+            playBtn.removeAttribute("hidden");
+            pauseBtn.setAttribute("hidden", true);
+            if (pauseBtn.classList.contains("fa-play")) {
+                pauseBtn.classList.remove("fa-play");
+                pauseBtn.classList.add("fa-pause");
+            }
+            minutes.textContent = "00";
+            seconds.textContent = "00";
         }
+    }
+}
+
+function countCycles() {
+    console.log(cyclesCount);
+    console.log(cyclesCount === + localStorage.getItem("cycles"));
+    if (cyclesCount === + localStorage.getItem("cycles")) {
+        cyclesCount = 0;
+        return true;
+    } else {
+        if (localStorage.getItem("status") === "focus") {
+            cyclesCount++;
+            cycles.textContent = cyclesCount;
+        }
+        return false;
     }
 }
