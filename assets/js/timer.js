@@ -2,33 +2,10 @@ const playBtn = document.querySelector("#playBtn"),
     pauseBtn = document.querySelector("#pauseBtn"),
     actIcon = document.querySelector("#actIcon"),
     refreshBtn = document.querySelector("#refreshBtn"),
-    alarmCheck = document.querySelector("#alarmCheck"),
-    alarm = document.querySelector("#alarm");
-
-localStorage.setItem("status", "focus");
-
-const minutes = document.querySelector(".minutes"),
+    alarm = document.querySelector("#alarm"),
+    minutes = document.querySelector(".minutes"),
     seconds = document.querySelector(".seconds"),
     timer = document.querySelector(".timer");
-
-let initial, totalsecs, perc, paused, mins, secs;
-
-function playTimer() {
-    let status = localStorage.getItem("status");
-
-    if (status === "focus") {
-        mins = +localStorage.getItem("focusMinutes") || 25;
-    } else {
-        mins = +localStorage.getItem("breakMinutes") || 5;
-    }
-
-    secs = mins * 60;
-    totalsecs = mins * 60;
-    setTimeout(decremenTime(), 60);
-    paused = false;
-    playBtn.setAttribute("hidden", true);
-    pauseBtn.removeAttribute("hidden");
-}
 
 playBtn.addEventListener("click", () => {
     playTimer();
@@ -64,8 +41,27 @@ refreshBtn.addEventListener("click", () => {
     seconds.textContent = "00";
 });
 
+let initial, totalsecs, perc, paused, mins, secs;
+
+function playTimer() {
+    let status = localStorage.getItem("status");
+
+    if (status === "focus") {
+        mins = + localStorage.getItem("focusMinutes") || 25;
+    } else {
+        mins = + localStorage.getItem("breakMinutes") || 5;
+    }
+
+    secs = mins * 60;
+    totalsecs = mins * 60;
+    setTimeout(decremenTime(), 60);
+    paused = false;
+    playBtn.setAttribute("hidden", true);
+    pauseBtn.removeAttribute("hidden");
+}
+
 function playAlarm() {
-    if (alarmCheck.checked) {
+    if (localStorage.getItem("alarm") === "true") {
         alarm.play();
     }
 }
