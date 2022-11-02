@@ -42,7 +42,7 @@ This project is not yet in its final version.
 
 ## License 🔑
 
-The [MIT License](https://github.com/rafandoo/pomotimer-lite/blob/4c8b86675c456d43cb37b6ec69d3653febc84a8f/LICENSE.md) (MIT)
+The [Apache License 2.0](https://github.com/rafandoo/pomotimer-lite/blob/dfd885dcb55b7a22f16c74dc9b99bd33c3f8175b/LICENSE)
 
 Copyright :copyright: 2022 - Rafael Camargo
 
