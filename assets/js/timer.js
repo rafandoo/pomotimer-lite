@@ -10,6 +10,12 @@ const playBtn = document.querySelector("#playBtn"),
 
 let initial, totalsecs, perc, paused, mins, secs, cyclesCount = 0;
 
+/**
+ * If the status is focus, then set the minutes to the focus minutes, otherwise set the minutes to the
+ * break minutes, then set the seconds to the minutes times 60, set the total seconds to the minutes
+ * times 60, set the timeout to decrement the time, set the paused variable to false, set the play
+ * button to hidden, and remove the hidden attribute from the pause button.
+ */
 function playTimer() {
     let status = localStorage.getItem("status");
 
@@ -53,7 +59,7 @@ function resetTimer() {
  * @returns the value of the variable paused.
  */
 function pauseTimer() {
-    if (paused === void 0) {
+    if (paused === undefined) {
         return;
     }
     if (paused) {
@@ -78,6 +84,10 @@ function playAlarm() {
     }
 }
 
+/**
+ * If the timer is not at zero, decrement the timer by one second and update the progress bar. If the
+ * timer is at zero, play the alarm, switch the timer to the other side, and play the timer again.
+ */
 function decremenTime() {
     minutes.textContent = Math.floor(secs / 60);
     seconds.textContent = secs % 60 > 9 ? secs % 60 : `0${secs % 60}`;
@@ -115,6 +125,7 @@ function decremenTime() {
     }
 }
 
+/* Counting the number of cycles. */
 function countCycles() {
     if (cyclesCount === Number(localStorage.getItem("cycles"))) {
         cyclesCount = 0;
