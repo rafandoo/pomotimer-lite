@@ -1,6 +1,6 @@
 'use strict';
 
-let switchButton = document.querySelector('.switch-button'),
+const switchButton = document.querySelector('.switch-button'),
 	switchBtnRight = document.querySelector('.switch-button-case.right'),
 	switchBtnLeft = document.querySelector('.switch-button-case.left'),
 	activeSwitch = document.querySelector('.active');

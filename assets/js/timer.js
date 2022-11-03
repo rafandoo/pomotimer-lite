@@ -8,27 +8,15 @@ const playBtn = document.querySelector("#playBtn"),
     seconds = document.querySelector(".seconds"),
     timer = document.querySelector(".timer");
 
-playBtn.addEventListener("click", () => {
-    playTimer();
-});
-
-pauseBtn.addEventListener("click", () => {
-    pauseTimer();
-});
-
-refreshBtn.addEventListener("click", () => {
-    resetTimer();
-});
-
 let initial, totalsecs, perc, paused, mins, secs, cyclesCount = 0;
 
 function playTimer() {
     let status = localStorage.getItem("status");
 
     if (status === "focus") {
-        mins = + localStorage.getItem("focusMinutes");
+        mins = Number(localStorage.getItem("focusMinutes"));
     } else {
-        mins = + localStorage.getItem("breakMinutes");
+        mins = Number(localStorage.getItem("breakMinutes"));
     }
 
     secs = mins * 60;
@@ -65,7 +53,7 @@ function resetTimer() {
  * @returns the value of the variable paused.
  */
 function pauseTimer() {
-    if (paused === undefined) {
+    if (paused === void 0) {
         return;
     }
     if (paused) {
@@ -128,7 +116,7 @@ function decremenTime() {
 }
 
 function countCycles() {
-    if (cyclesCount === + localStorage.getItem("cycles")) {
+    if (cyclesCount === Number(localStorage.getItem("cycles"))) {
         cyclesCount = 0;
         return true;
     } else {
@@ -139,3 +127,15 @@ function countCycles() {
         return false;
     }
 }
+
+playBtn.addEventListener("click", () => {
+    playTimer();
+});
+
+pauseBtn.addEventListener("click", () => {
+    pauseTimer();
+});
+
+refreshBtn.addEventListener("click", () => {
+    resetTimer();
+});
