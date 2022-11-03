@@ -124,8 +124,8 @@ function countCycles() {
             cyclesCount++;
             cycles.textContent = cyclesCount;
         }
-        return false;
     }
+    return false;
 }
 
 playBtn.addEventListener("click", () => {

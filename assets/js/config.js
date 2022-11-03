@@ -7,12 +7,21 @@ localStorage.setItem("alarm", true);
 
 /* This is the JavaScript code that is used to make the buttons focus. */
 window.onload = function () {
-    var plusBtnBreak = document.querySelector("#plusBtnBreak"),
+    const plusBtnFocus = document.querySelector("#plusBtnFocus"),
+        minusBtnFocus = document.querySelector("#minusBtnFocus"),
+        plusBtnBreak = document.querySelector("#plusBtnBreak"),
         minusBtnBreak = document.querySelector("#minusBtnBreak"),
-        breakMinutes = document.querySelector("#breakMinutes"),
-        breakValue = 5,
+        plusBtnCycles = document.querySelector("#plusBtnCycles"),
+        minusBtnCycles = document.querySelector("#minusBtnCycles"),
         min = 1,
         max = 99;
+
+    let focusMinutes = document.querySelector("#focusMinutes"),
+        focusValue = 25,
+        breakMinutes = document.querySelector("#breakMinutes"),
+        breakValue = 5,
+        cycles = document.querySelector("#cycles")
+        cyclesValue = 4;
 
     /* Saying that when the minus button is clicked, the value of the breakValue will decrease by 1. */
     minusBtnBreak.onclick = function () {
@@ -29,13 +38,6 @@ window.onload = function () {
         }
     }
 
-    var plusBtnFocus = document.querySelector("#plusBtnFocus"),
-        minusBtnFocus = document.querySelector("#minusBtnFocus"),
-        focusMinutes = document.querySelector("#focusMinutes"),
-        focusValue = 25,
-        min = 1,
-        max = 99;
-
     /* Saying that when the minus button is clicked, the value of the focusValue will decrease by 1. */
     minusBtnFocus.onclick = function () {
         if (focusValue > min) {
@@ -50,13 +52,6 @@ window.onload = function () {
             focusMinutes.innerText = focusValue;
         }
     }
-
-    var plusBtnCycles = document.querySelector("#plusBtnCycles"),
-        minusBtnCycles = document.querySelector("#minusBtnCycles"),
-        cycles = document.querySelector("#cycles"),
-        cyclesValue = 4,
-        min = 1,
-        max = 99;
 
     /* Saying that when the minus button is clicked, the value of the cyclesValue will decrease by 1. */
     minusBtnCycles.onclick = function () {
@@ -84,4 +79,3 @@ window.onload = function () {
         localStorage.setItem("alarm", document.querySelector("#alarmCheck").checked);
     });
 }
-
