@@ -1,9 +1,9 @@
 'use strict';
 
-var switchButton = document.querySelector('.switch-button');
-var switchBtnRight = document.querySelector('.switch-button-case.right');
-var switchBtnLeft = document.querySelector('.switch-button-case.left');
-var activeSwitch = document.querySelector('.active');
+let switchButton = document.querySelector('.switch-button'),
+	switchBtnRight = document.querySelector('.switch-button-case.right'),
+	switchBtnLeft = document.querySelector('.switch-button-case.left'),
+	activeSwitch = document.querySelector('.active');
 
 /**
  * When the switchLeft function is called, the switchBtnRight class is removed from the switchBtnRight
