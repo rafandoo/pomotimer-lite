@@ -27,6 +27,8 @@ PomoTimer is the application of the Pomodoro technique, which consists of dividi
 
 ✔️ Possibility to pause and resume the timer.
 
+✔️ Definition of the desired number of cycles.
+
 ## Observations 👀
 
 This project is not yet in its final version.
@@ -35,8 +37,6 @@ This project is not yet in its final version.
 ## Future enhancements 🚀
 
 ✔️ Long break.
-
-✔️ Definition of the desired number of cycles.
 
 ✔️ General statistics.
 
