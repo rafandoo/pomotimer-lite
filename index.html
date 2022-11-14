@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Pomotimer</title>
+    <title>PomoTimer</title>
+    <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/img/apple-icon-180x180.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
@@ -23,7 +24,8 @@
     <nav class="navbar navbar-dark navbar-expand-md bg-dark py-3">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <span id="title">PomoTimer&nbsp;🍅</span>
+                <span id="title">PomoTimer&nbsp;</span>
+                <img src="assets/img/favicon-32x32.png" alt="PomoTimer">
             </a>
             <div>
                 <a id="config" data-bs-target="#modal-1" data-bs-toggle="modal">
@@ -158,5 +160,10 @@
     <script src="assets/js/progress.js"></script>
     <script src="assets/js/switch.js"></script>
     <script src="assets/js/timer.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('generate-sw.js');
+        }
+    </script>
 </body>
 </html>
