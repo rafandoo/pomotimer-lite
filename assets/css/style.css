@@ -3,6 +3,10 @@
   cursor: pointer;
 }
 
+#configDiv {
+  margin-left: 80px;
+}
+
 #title {
   font-size: 25px;
   font-family: Poppins, sans-serif;
