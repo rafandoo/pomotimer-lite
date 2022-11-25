@@ -46,6 +46,8 @@ This project is not yet in its final version.
 
 ✔️ Alarm sound selector. 
 
+✔️ Notification when the timer ends.
+
 ## License 🔑
 
 The [Apache License 2.0](https://github.com/rafandoo/pomotimer-lite/blob/dfd885dcb55b7a22f16c74dc9b99bd33c3f8175b/LICENSE)
