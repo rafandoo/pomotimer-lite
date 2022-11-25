@@ -5,10 +5,69 @@ const playBtn = document.querySelector("#playBtn"),
     alarm = document.querySelector("#alarm"),
     cycles = document.querySelector("#cycles"),
     minutes = document.querySelector(".minutes"),
-    seconds = document.querySelector(".seconds"),
-    timer = document.querySelector(".timer");
+    seconds = document.querySelector(".seconds");
 
-let initial, totalsecs, perc, paused, mins, secs, cyclesCount = 0;
+let initial = null,
+    totalsecs = 0,
+    perc = 0,
+    paused = false,
+    mins = 0,
+    secs = 0, 
+    cyclesCount = 0;
+
+/**
+ * If the timer is not at zero, decrement the timer by one second and update the progress bar. If the
+ * timer is at zero, play the alarm, switch the timer to the other side, and play the timer again.
+ */
+function decremenTime() {
+    minutes.textContent = Math.floor(secs / 60);
+    seconds.textContent = secs % 60 > 9 ? secs % 60 : `0${secs % 60}`;
+    if (progress.classList.contains("danger")) {
+        progress.classList.remove("danger");
+    }
+
+    if (secs > 0) {
+        perc = Math.ceil(((totalsecs - secs) / totalsecs) * 100);
+        setProgress(perc);
+        secs--;
+        initial = window.setTimeout(decremenTime, 1000);
+        if (secs < 10) {
+            progress.classList.add("danger");
+        }
+    } else {
+        mins = 0;
+        secs = 0;
+        playAlarm();
+        let status = localStorage.getItem("status");
+
+        if (!countCycles()) {
+            if (status === "focus") {
+                switchRight();
+                localStorage.setItem("status", "break");
+                playTimer();
+            } else {
+                switchLeft();
+                localStorage.setItem("status", "focus");
+                playTimer();
+            }
+        } else {
+            resetTimer();
+        }
+    }
+}
+
+/* Counting the number of cycles. */
+function countCycles() {
+    if (cyclesCount === Number(localStorage.getItem("cycles"))) {
+        cyclesCount = 0;
+        return true;
+    }
+    if (localStorage.getItem("status") === "focus") {
+        cyclesCount++;
+        cycles.textContent = cyclesCount;
+    }
+    return false;
+}
 
 /**
  * If the status is focus, then set the minutes to the focus minutes, otherwise set the minutes to the
@@ -82,61 +141,6 @@ function playAlarm() {
     if (localStorage.getItem("alarm") === "true") {
         alarm.play();
     }
-}
-
-/**
- * If the timer is not at zero, decrement the timer by one second and update the progress bar. If the
- * timer is at zero, play the alarm, switch the timer to the other side, and play the timer again.
- */
-function decremenTime() {
-    minutes.textContent = Math.floor(secs / 60);
-    seconds.textContent = secs % 60 > 9 ? secs % 60 : `0${secs % 60}`;
-    if (progress.classList.contains("danger")) {
-        progress.classList.remove("danger");
-    }
-
-    if (secs > 0) {
-        perc = Math.ceil(((totalsecs - secs) / totalsecs) * 100);
-        setProgress(perc);
-        secs--;
-        initial = window.setTimeout(decremenTime, 1000);
-        if (secs < 10) {
-            progress.classList.add("danger");
-        }
-    } else {
-        mins = 0;
-        secs = 0;
-        playAlarm();
-        let status = localStorage.getItem("status");
-
-        if (!countCycles()) {
-            if (status === "focus") {
-                switchRight();
-                localStorage.setItem("status", "break");
-                playTimer();
-            } else {
-                switchLeft();
-                localStorage.setItem("status", "focus");
-                playTimer();
-            }
-        } else {
-            resetTimer();
-        }
-    }
-}
-
-/* Counting the number of cycles. */
-function countCycles() {
-    if (cyclesCount === Number(localStorage.getItem("cycles"))) {
-        cyclesCount = 0;
-        return true;
-    } else {
-        if (localStorage.getItem("status") === "focus") {
-            cyclesCount++;
-            cycles.textContent = cyclesCount;
-        }
-    }
-    return false;
 }
 
 playBtn.addEventListener("click", () => {
