@@ -3,7 +3,7 @@
   cursor: pointer;
 }
 
-#configDiv {
+#config-div {
   margin-left: 80px;
 }
 
@@ -17,6 +17,10 @@
 }
 
 .fab.fa-github {
+  font-size: 20px;
+}
+
+.fas.fa-code {
   font-size: 20px;
 }
 
