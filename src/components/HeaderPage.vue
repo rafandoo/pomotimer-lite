@@ -18,8 +18,14 @@ import ConfigModal from './ConfigModal.vue';
 export default {
     name: 'HeaderPage',
     props: {
-        title: String,
-        logo_img: String
+        title: {
+            type: String,
+            default: 'Title'
+        },
+        logo_img: {
+            type: String,
+            default: '../assets/img/pomodoro.png'
+        }
     },
     components: {
         ConfigModal
