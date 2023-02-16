@@ -24,7 +24,7 @@
 *.code-workspace
 
 # Ignore temp files and folders
-.tmp/
+tmp/
 temp/
 *.tmp
 *.bsdesign

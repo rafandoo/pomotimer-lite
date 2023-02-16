@@ -13,9 +13,6 @@ import CtrlButtons from './CtrlButtons.vue';
 
 export default {
     name: 'BodyPage',
-    props: {
-        msg: String
-    },
     components: {
         SwitchHeader,
         ProgressTimer,
