@@ -82,8 +82,8 @@ export default {
     methods: {
         config() {
             /* Setting the default values for the local storage. */
-            localStorage.setItem("focusMinutes", 0.1);
-            localStorage.setItem("breakMinutes", 0.1);
+            localStorage.setItem("focusMinutes", 25);
+            localStorage.setItem("breakMinutes", 5);
             localStorage.setItem("cycles", 4);
             localStorage.setItem("status", "focus");
             localStorage.setItem("alarm", true);
