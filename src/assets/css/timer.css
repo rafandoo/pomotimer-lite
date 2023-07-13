@@ -23,3 +23,16 @@
   stroke: #ffffff;
 }
 
+@media screen and (max-width: 675px) {
+  .progress-ring {
+    width: 200px;
+    height: 200px;
+  }
+
+  .progress-ring .circle {
+    stroke-width: 4px;
+    r: 90px;
+    cx : 100px;
+    cy : 100px;
+  }
+}

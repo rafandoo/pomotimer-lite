@@ -1,8 +1,12 @@
 <template>
     <HeaderPage title="PomoTimer" :logo_img="require('./assets/img/pomodoro.png')" />
     <BodyPage />
-    <FooterPage name="Rafael Camargo" github_link="https://www.github.com/rafandoo"
-    instagram_link="https://www.instagram.com/rafandoo/" personal_link="https://rafandoo.github.io/" />
+    <FooterPage 
+        name="Rafael Camargo" 
+        github_link="https://www.github.com/rafandoo"
+        instagram_link="https://www.instagram.com/rafandoo/" 
+        personal_link="https://github.com/rafandoo/pomotimer-lite" 
+    />
 </template>
 
 <script>
@@ -228,13 +232,13 @@ export default {
 </script>
 
 <style>
-@import './assets/css/style.css';
 @import './assets/css/switch.css';
 @import './assets/css/timer.css';
 @import './assets/bootstrap/css/bootstrap.min.css';
 @import './assets/fonts/fontawesome-all.min.css';
 @import './assets/fonts/font-awesome.min.css';
 @import './assets/fonts/fontawesome5-overrides.min.css';
+@import './assets/css/style.css';
 
 @import 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&amp;display=swap';
 @import 'https://fonts.googleapis.com/css?family=Poppins&amp;display=swap';

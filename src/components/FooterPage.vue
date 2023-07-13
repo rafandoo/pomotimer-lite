@@ -1,8 +1,8 @@
 <template>
-    <footer class="text-center bg-dark" style="margin-top: 40px;">
+    <footer class="text-center bg-dark">
         <div class="container text-white py-4 py-lg-4">
             <p class="text-muted mb-0">Copyright © 2023 {{ name }}</p>
-            <ul class="list-inline mt-2">
+            <ul class="list-inline mt-3">
                 <li class="list-inline-item me-4">
                     <a :href="github_link" target="_blank" rel='noopener noreferrer'>
                         <i class="fab fa-github text-light"></i>

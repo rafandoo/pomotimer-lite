@@ -1,11 +1,10 @@
 .switch-button {
-  width: 300px;
-  height: 40px;
+  width: 20em;
+  height: 2.5em;
   text-align: center;
   will-change: transform;
   z-index: 197 !important;
   cursor: pointer;
-  transition: 0.3s ease all;
   border: 1px solid white;
   border-radius: 20px;
 }
@@ -16,14 +15,13 @@
   height: 100%;
   color: white;
   border: none;
-  transition: 0.3s ease all;
   text-transform: uppercase;
   letter-spacing: 5px;
   padding-bottom: 1px;
 }
 
 .switch-button-case:hover {
-  color: grey;
+  opacity: 0.6;
   cursor: pointer;
 }
 
@@ -40,10 +38,26 @@
   width: 50%;
   height: 100%;
   z-index: -1;
-  transition: 0.3s ease-out all;
 }
 
 .switch-button .active-case {
   color: #151515;
 }
 
+@media screen and (max-width: 1000px) {
+  .switch-button {
+    width: 15em;
+    height: 2.5em;
+  }
+}
+
+@media screen and (max-width: 675px) {
+  .switch-button {
+    width: 13em;
+    height: 2.5em;
+  }
+  .switch-button-case {
+    font-size: 13px;
+    padding-left: 10px;
+  }
+}

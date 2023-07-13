@@ -1,10 +1,10 @@
 <template>
-    <div id="config-div">
-        <a id="config" data-bs-target="#modal-config" data-bs-toggle="modal">
+    <div class="config-div">
+        <a id="config" class="config" data-bs-target="#modal-config" data-bs-toggle="modal">
             <i class="fas fa-cog text-white"></i>
         </a>
         <div class="modal fade" role="dialog" tabindex="-1" id="modal-config">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content bg-dark text-white">
                     <div class="modal-header">
                         <h4 class="modal-title">Settings</h4>
@@ -13,8 +13,8 @@
                     <form target="_self">
                         <div class="modal-body">
                             <div class="input-group justify-content-center p-2">
-                                <span class="input-group-text" id="info">Focus Time</span>
-                                <span class="input-group-text" id="infoConfig">
+                                <span class="input-group-text info">Focus Time</span>
+                                <span class="input-group-text infoConfig">
                                     <span id="focusMinutes"
                                         style="font-size: 20px;margin-left: 8px;margin-right: 8px;">25</span>
                                     <button id="plusBtnFocus" class="plusBtn text-white" type="button">
@@ -26,8 +26,8 @@
                                 </span>
                             </div>
                             <div class="input-group justify-content-center p-2">
-                                <span class="input-group-text" id="info">Break Time</span>
-                                <span class="input-group-text" id="infoConfig">
+                                <span class="input-group-text info">Break Time</span>
+                                <span class="input-group-text infoConfig">
                                     <span id="breakMinutes"
                                         style="font-size: 20px;margin-left: 8px;margin-right: 8px;">5</span>
                                     <button id="plusBtnBreak" class="plusBtn text-white" type="button">
@@ -39,8 +39,8 @@
                                 </span>
                             </div>
                             <div class="input-group justify-content-center p-2">
-                                <span class="input-group-text" id="info">Cycles</span>
-                                <span class="input-group-text" id="infoConfig">
+                                <span class="input-group-text info">Cycles</span>
+                                <span class="input-group-text infoConfig">
                                     <span id="cycles"
                                         style="font-size: 20px;margin-left: 8px;margin-right: 8px;">4</span>
                                     <button id="plusBtnCycles" class="plusBtn text-white" type="button">
@@ -52,8 +52,8 @@
                                 </span>
                             </div>
                             <div class="input-group justify-content-center p-2">
-                                <span class="input-group-text" id="info">Sound</span>
-                                <span class="input-group-text" id="infoConfig">
+                                <span class="input-group-text info">Sound</span>
+                                <span class="input-group-text infoConfig">
                                     <label class="checkbox path m-1">
                                         <input type="checkbox" checked id="alarmCheck">
                                         <svg viewBox="0 0 21 21">
@@ -82,8 +82,8 @@ export default {
     methods: {
         config() {
             /* Setting the default values for the local storage. */
-            localStorage.setItem("focusMinutes", 25);
-            localStorage.setItem("breakMinutes", 5);
+            localStorage.setItem("focusMinutes", 0.1);
+            localStorage.setItem("breakMinutes", 0.1);
             localStorage.setItem("cycles", 4);
             localStorage.setItem("status", "focus");
             localStorage.setItem("alarm", true);

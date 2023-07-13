@@ -3,7 +3,7 @@
         <div class="container">
             <div class="col d-flex justify-content-center align-items-center">
                 <a href="#" class="navbar-brand d-flex align-items-center">
-                    <span id="title">{{ title }}&nbsp;</span>
+                    <span class="title">{{ title }}&nbsp;</span>
                     <img :src="logo_img" :alt="title">
                 </a>
                 <ConfigModal />

@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="col text-center">
-            <button id="refreshBtn" class="text-white" type="button">
+            <button id="refreshBtn" class="text-white refreshBtn" type="button">
                 <i class="fa fa-refresh"></i>
             </button>
             <button id="playBtn" class="text-white actionBtn" type="button">
