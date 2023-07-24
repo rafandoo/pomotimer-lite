@@ -239,7 +239,6 @@ export default {
 @import './assets/fonts/font-awesome.min.css';
 @import './assets/fonts/fontawesome5-overrides.min.css';
 @import './assets/css/style.css';
-
 @import 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&amp;display=swap';
 @import 'https://fonts.googleapis.com/css?family=Poppins&amp;display=swap';
 </style>
