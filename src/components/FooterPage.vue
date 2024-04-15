@@ -28,16 +28,20 @@ export default {
     name: 'FooterPage',
     props: {
         name: {
-            type: String
+            type: String,
+            required: true
         },
         github_link: {
-            type: String
+            type: String,
+            required: true
         },
         instagram_link: {
-            type: String
+            type: String,
+            required: true
         },
         personal_link: {
-            type: String
+            type: String,
+            required: true
         }
     }
 }

@@ -90,12 +90,12 @@ export default {
             }
             const spans = document.querySelectorAll(".change-value-span");
 
-            
             for (const key in defaults) {
                 if(localStorage.getItem(key) === null) {
                     localStorage.setItem(key, defaults[key]);
                 }
             }
+            localStorage.setItem("status", "focus");
             spans.forEach((span) => {
                 span.innerHTML = localStorage.getItem(span.id);
             });

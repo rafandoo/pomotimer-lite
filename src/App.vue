@@ -79,6 +79,13 @@ export default {
                 secs = 0,
                 cyclesCount = 0;
 
+            /**
+             * Resets the timer by clearing the initial timeout, setting cyclesCount to 0, 
+             * updating the progress circle to 100%, switching toggle to the left, 
+             * setting the localStorage status to "focus", showing the play button, hiding the pause button, 
+             * updating minutes display to "0", and updating seconds display to "00".
+             *
+             */
             const resetTimer = () => {
                 clearTimeout(initial);
                 cyclesCount = 0;
@@ -111,7 +118,7 @@ export default {
                     secs = 0;
                     playAlarm();
                     if (!countCycles()) {
-                        let status = localStorage.getItem("status");
+                        const status = localStorage.getItem("status");
                         if (status === "focus") {
                             switchToggle.switchToRight();
                             localStorage.setItem("status", "break");
@@ -146,7 +153,7 @@ export default {
              * button to hidden, and remove the hidden attribute from the pause button.
              */
             function playTimer() {
-                let status = localStorage.getItem("status");
+                const status = localStorage.getItem("status");
 
                 if (status === "focus") {
                     mins = Number(localStorage.getItem("focus"));
@@ -166,7 +173,7 @@ export default {
              * If the timer is paused, then unpause it, otherwise pause it.
              */
             function pauseTimer() {
-                let changeIcon = pauseBtn.querySelector('i');
+                const changeIcon = pauseBtn.querySelector('i');
                 if (paused === undefined) {
                     return;
                 }
