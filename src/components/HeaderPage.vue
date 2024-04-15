@@ -4,7 +4,7 @@
             <div class="col d-flex justify-content-center align-items-center">
                 <a href="#" class="navbar-brand d-flex align-items-center">
                     <span class="title">{{ title }}&nbsp;</span>
-                    <img :src="logo_img" :alt="title">
+                    <img :src="logo" :alt="title">
                 </a>
                 <ConfigModal />
             </div>
@@ -20,11 +20,11 @@ export default {
     props: {
         title: {
             type: String,
-            default: 'Title'
+            required: true
         },
-        logo_img: {
+        logo: {
             type: String,
-            default: '../assets/img/pomodoro.png'
+            required: true
         }
     },
     components: {
@@ -32,7 +32,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-
-</style>

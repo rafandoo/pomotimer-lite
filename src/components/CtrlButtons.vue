@@ -1,14 +1,14 @@
 <template>
     <div class="row">
         <div class="col text-center">
-            <button id="refreshBtn" class="text-white refreshBtn" type="button">
+            <button id="refresh-btn" class="text-white action-btn" type="button">
                 <i class="fa fa-refresh"></i>
             </button>
-            <button id="playBtn" class="text-white actionBtn" type="button">
+            <button id="play-btn" class="text-white action-btn" type="button">
                 <i class="fas fa-play"></i>
             </button>
-            <button id="pauseBtn" class="text-white actionBtn" type="button" hidden>
-                <i id="actIcon" class="fas fa-pause"></i>
+            <button id="pause-btn" class="text-white action-btn" type="button" hidden>
+                <i class="fas fa-pause"></i>
             </button>
         </div>
     </div>
@@ -19,7 +19,3 @@ export default {
     name: 'CtrlButtons'
 }
 </script>
-
-<style scoped>
-
-</style>

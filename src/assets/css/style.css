@@ -1,6 +1,7 @@
 :root {
   --font: 'Poppins', sans-serif;
   --font-title: 25px;
+  --font-text: 13px;
 }
 
 ::-webkit-scrollbar {
@@ -63,7 +64,7 @@ footer {
   -ms-flex-align: center;
   align-items: center;
   padding: .375rem .75rem;
-  font-size: 13px;
+  font-size: var(--font-text);
   font-weight: 400;
   line-height: 1.5;
   color: var(--bs-white);
@@ -72,28 +73,27 @@ footer {
   background-color: var(--bs-body-color);
   border: 1px solid #ced4da;
   border-radius: 20px 0px 0px 20px;
-  text-transform: uppercase;
-  letter-spacing: 5px;
+  /* text-transform: uppercase; */
+  letter-spacing: 3px;
 }
 
-#breakTime {
-  border-radius: 0px 20px 20px 0px;
-}
-
-#focusTime {
-  border-radius: 0px 20px 20px 0px;
+.change-value-span {
+  font-size: 20px;
+  margin-left: 8px;
+  margin-right: 8px;
 }
 
 .save-btn {
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  font-size: 13px;
+  /* text-transform: uppercase; */
+  letter-spacing: 3px;
+  font-size: var(--font-text);
+  font-family: var(--font);
   background: var(--bs-body-color);
   color: var(--bs-white);
   border: 1px solid var(--bs-white);
-  border-radius: 20px;
-  padding: 8px;
-  padding-right: 4px;
+  border-radius: 20px 20px 20px 20px;
+  padding: .375rem .75rem;
+  padding-right: .50rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,8 +105,8 @@ footer {
   cursor: pointer;
 }
 
-.minusBtn,
-.plusBtn {
+.minus-btn,
+.plus-btn {
   background: var(--bs-body-color);
   border-style: none;
   border-radius: 20px;
@@ -118,13 +118,13 @@ footer {
   opacity: 1;
 }
 
-.minusBtn:hover,
-.plusBtn:hover {
+.minus-btn:hover,
+.plus-btn:hover {
   opacity: 0.8;
   cursor: pointer;
 }
 
-.infoConfig {
+.info-config {
   background: var(--bs-body-color);
   border: 1px solid var(--bs-white);
   border-radius: 0px 20px 20px 0px;
@@ -139,36 +139,17 @@ footer {
   margin-top: 7rem !important;
 }
 
-.refreshBtn:focus {
+.action-btn:focus {
   border: none;
   outline: none;
 }
 
-.refreshBtn:hover {
+.action-btn:hover {
   border-color: var(--bs-body-color);
   opacity: 0.8;
 }
 
-.refreshBtn {
-  background: var(--bs-body-color);
-  margin-right: 10px;
-  font-size: 30px;
-  border: none;
-  outline: none;
-  opacity: 1;
-}
-
-.actionBtn:focus {
-  border: none;
-  outline: none;
-}
-
-.actionBtn:hover {
-  border-color: var(--bs-body-color);
-  opacity: 0.8;
-}
-
-.actionBtn {
+.action-btn {
   background: var(--bs-body-color);
   margin-left: 10px;
   font-size: 30px;
@@ -184,9 +165,7 @@ footer {
 }
 
 @media screen and (max-width: 675px) {
-
-  .refreshBtn,
-  .actionBtn,
+  .action-btn,
   .config {
     font-size: 21px;
   }
@@ -250,6 +229,7 @@ footer {
 .checkbox input {
   -webkit-appearance: none;
   -moz-appearance: none;
+  appearance: none;
   position: relative;
   outline: none;
   background: var(--background);
