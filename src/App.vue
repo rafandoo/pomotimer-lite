@@ -70,7 +70,7 @@ export default {
             }
         },
 
-        timer(progressCircle, switchToggle, playBtn, pauseBtn, refreshBtn, alarm, cyclesDisplay, minutesDisplay, secondsDisplay) {
+        timer(progressCircle, switchToggle, playBtn, pauseBtn, refreshBtn, alarm, minutesDisplay, secondsDisplay) {
             let initial = null,
                 perc = 0,
                 paused = false,
@@ -96,8 +96,15 @@ export default {
                 pauseBtn.setAttribute("hidden", true);
                 minutesDisplay.textContent = "0";
                 secondsDisplay.textContent = "00";
+                this.emitter.emit('resetCycles');
             };
 
+            const finishPomo = () => {
+                this.emitter.emit('finishCycle');
+                localStorage.setItem("status", "focus");
+                playBtn.removeAttribute("hidden");
+                pauseBtn.setAttribute("hidden", true);
+            }
             progressCircle.setProgress(100);
 
             /**
@@ -118,17 +125,17 @@ export default {
                     secs = 0;
                     playAlarm();
                     if (!countCycles()) {
-                        const status = localStorage.getItem("status");
-                        if (status === "focus") {
+                        if (localStorage.getItem("status") === "focus") {
                             switchToggle.switchToRight();
                             localStorage.setItem("status", "break");
                         } else {
                             switchToggle.switchToLeft();
+                            this.emitter.emit('finishCycle');
                             localStorage.setItem("status", "focus");
                         }
                         playTimer();
                     } else {
-                        resetTimer();
+                        finishPomo();
                     }
                 }
             }
@@ -136,12 +143,10 @@ export default {
             /* Counting the number of cycles. */
             function countCycles() {
                 if (cyclesCount === Number(localStorage.getItem("cycles"))) {
-                    cyclesCount = 0;
                     return true;
                 }
                 if (localStorage.getItem("status") === "focus") {
                     cyclesCount++;
-                    cyclesDisplay.textContent = cyclesCount;
                 }
                 return false;
             }
@@ -200,6 +205,9 @@ export default {
             }
 
             playBtn.addEventListener("click", () => {
+                if (cyclesCount === Number(localStorage.getItem("cycles"))) {
+                    resetTimer();
+                }
                 playTimer();
             });
 
@@ -219,11 +227,10 @@ export default {
             pauseBtn = document.querySelector("#pause-btn"),
             refreshBtn = document.querySelector("#refresh-btn"),
             alarm = document.querySelector("#alarm"),
-            cyclesDisplay = document.querySelector("#cycles"),
             minutesDisplay = document.querySelector(".minutes"),
             secondsDisplay = document.querySelector(".seconds");
 
-        this.timer(progressCircle, switchToggle, playBtn, pauseBtn, refreshBtn, alarm, cyclesDisplay, minutesDisplay, secondsDisplay);
+        this.timer(progressCircle, switchToggle, playBtn, pauseBtn, refreshBtn, alarm, minutesDisplay, secondsDisplay);
     }
 }
 </script>

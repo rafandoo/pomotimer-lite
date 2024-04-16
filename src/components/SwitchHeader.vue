@@ -8,11 +8,48 @@
             </div>
         </div>
     </div>
+    <div class="cycle-bullets">
+        <span v-for="cycle in cycles" :key="cycle" class="bullet"></span>
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'SwitchHeader'
+    name: 'SwitchHeader',
+
+    data() {
+        return {
+            cyclesCount: 0,
+            cycles: Number(localStorage.getItem("cycles")),
+        }
+
+    },
+    created() {
+        this.emitter.on('finishCycle', this.finishCycle);
+        this.emitter.on('resetCycles', this.resetCycles);
+        this.emitter.on('updateCycles', this.updateCycles);
+    },
+    methods: {
+        finishCycle() {
+            this.cyclesCount++;
+            for (let i = 0; i < this.cyclesCount; i++) {
+                document.querySelectorAll(".bullet")[i].classList.add("bullet-finished");
+            }
+        },
+        resetCycles() {
+            this.cyclesCount = 0;
+            for (let i = 0; i < this.cycles; i++) {
+                try {
+                    document.querySelectorAll(".bullet")[i].classList.remove("bullet-finished");
+                } catch (error) {continue;}
+            }
+        },
+        updateCycles() {
+            this.cycles = Number(localStorage.getItem("cycles"));
+            this.resetCycles();
+        }
+    },
+    
 }
 </script>
 
@@ -67,6 +104,26 @@ export default {
     color: #151515;
 }
 
+.cycle-bullets {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #71797E;
+    margin: 0 5px;
+    transition: .75s;
+}
+
+.bullet-finished {
+    background-color: white;
+    transition: .75s;
+}
+
 @media screen and (max-width: 1000px) {
     .switch-button {
         width: 15em;
@@ -83,6 +140,10 @@ export default {
     .switch-button-case {
         font-size: 13px;
         padding-left: 10px;
+    }
+
+    .cycle-bullets {
+        margin-top: 2rem;
     }
 }
 </style>

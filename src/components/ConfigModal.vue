@@ -15,10 +15,10 @@
                             <div class="input-group justify-content-center p-2">
                                 <span class="input-group-text info">Focus Time</span>
                                 <span class="input-group-text info-config">
-                                    <span class="change-value-span" id="focus"></span>
                                     <button id="plus-btn-focus" class="plus-btn text-white" type="button">
                                         <i class="fas fa-plus"></i>
                                     </button>
+                                    <span class="change-value-span" id="focus"></span>
                                     <button id="minus-btn-focus" class="minus-btn text-white" type="button">
                                         <i class="fas fa-minus"></i>
                                     </button>
@@ -27,10 +27,10 @@
                             <div class="input-group justify-content-center p-2">
                                 <span class="input-group-text info">Break Time</span>
                                 <span class="input-group-text info-config">
-                                    <span class="change-value-span" id="break"></span>
                                     <button id="plus-btn-break" class="plus-btn text-white" type="button">
                                         <i class="fas fa-plus"></i>
                                     </button>
+                                    <span class="change-value-span" id="break"></span>
                                     <button id="minus-btn-break" class="minus-btn text-white" type="button">
                                         <i class="fas fa-minus"></i>
                                     </button>
@@ -39,10 +39,10 @@
                             <div class="input-group justify-content-center p-2">
                                 <span class="input-group-text info">Cycles</span>
                                 <span class="input-group-text info-config">
-                                    <span class="change-value-span" id="cycles"></span>
                                     <button id="plus-btn-cycles" class="plus-btn text-white" type="button">
                                         <i class="fas fa-plus"></i>
                                     </button>
+                                    <span class="change-value-span" id="cycles"></span>
                                     <button id="minus-btn-cycles" class="minus-btn text-white" type="button">
                                         <i class="fas fa-minus"></i>
                                     </button>
@@ -114,6 +114,7 @@ export default {
                 localStorage.setItem("break", document.querySelector('#break').innerHTML);
                 localStorage.setItem("cycles", document.querySelector('#cycles').innerHTML);
                 localStorage.setItem("alarm", document.querySelector("#alarm-check").checked);
+                this.emitter.emit('updateCycles');
             });
         },
         adjustValue(type, change) {
